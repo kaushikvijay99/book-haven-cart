@@ -1,14 +1,14 @@
 
 import React, { useEffect, useState } from "react";
 import { getAllBooks, searchBooksByTitle } from "@/lib/api";
-import { Book } from "@/lib/types";
+import { Book as BookType } from "@/lib/types";
 import BookCard from "@/components/BookCard";
 import SearchBar from "@/components/SearchBar";
 import EmptyState from "@/components/EmptyState";
-import { Loader2, Books, BookOpen } from "lucide-react";
+import { Loader2, Book, BookOpen } from "lucide-react";
 
 const Index: React.FC = () => {
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<BookType[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [searching, setSearching] = useState(false);
@@ -45,7 +45,7 @@ const Index: React.FC = () => {
     <div className="container py-6">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-6 flex items-center gap-2">
-          <Books className="h-8 w-8 text-book-primary" />
+          <Book className="h-8 w-8 text-book-primary" />
           Book Catalog
         </h1>
         <SearchBar onSearch={handleSearch} />
